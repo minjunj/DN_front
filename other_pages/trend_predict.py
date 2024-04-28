@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 # Title of the app
-st.title("Predict Article's View!!")
+st.title("Predict Article's Top Rate View!!")
 
 def send_data():
     url = 'https://efd6-104-199-156-150.ngrok-free.app' # dn be api link 
