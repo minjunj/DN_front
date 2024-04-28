@@ -24,13 +24,13 @@ def send_data(title, txt, tag, deadline):
 st.title('Writting a Article!')
 
 with st.form(key='my_form'):
-    title = st.text_input(label='', placeholder='Insert Article Title')
+    title = st.text_input(label='Tite', placeholder='Insert Article Title')
     txt = st.text_area(
-        label='',
+        label='Contents',
         placeholder='Insert the Contents!',
         height=500,
     )
-    tag = st.text_input(label='', placeholder='Insert Article Tags likes #apple, #beer')
+    tag = st.text_input(label='Tags', placeholder='Insert Article Tags likes #apple, #beer')
     deadline = st.date_input("When's artucle deadline", datetime.date(2024, 5, 5))
     submit_button = st.form_submit_button(label='Submit')
 
