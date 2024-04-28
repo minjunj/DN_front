@@ -16,7 +16,6 @@ def send_data(title, txt, tag, deadline):
         "tags": tags,  # Assuming tags are comma-separated
         "deadline" : int(time_diff_seconds) 
     }
-    print(data)
     response = requests.post(url, json=data)
     return response.status_code, response.json() 
 
@@ -32,10 +31,12 @@ with st.form(key='my_form'):
     )
     tag = st.text_input(label='Tags', placeholder='Insert Article Tags likes #apple, #beer')
     deadline = st.date_input("When's artucle deadline", datetime.date(2024, 5, 5))
-    submit_button = st.form_submit_button(label='Submit')
+    submit_button = st.form_submit_button(label='Verify')
 
     if submit_button:
-        status_code, response = send_data(title, txt, tag, deadline)
+        
+        with st.spinner('Wait for it...'):
+            status_code, response = send_data(title, txt, tag, deadline)
         if status_code == 200:
             st.success('Data successfully submitted!')
         else:
