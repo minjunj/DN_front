@@ -6,7 +6,9 @@ from st_pages import Page, Section, show_pages, add_page_title
 import requests
 
 def send_data(title, txt, tag, deadline):
-    url = "https://da39-34-125-154-224.ngrok-free.app/api/predict"  # Replace with your API endpoint
+    url = "https://13c2-104-199-156-150.ngrok-free.app"
+    path = '/api/predict'  # Replace with your API endpoint
+    endpoint = url + path
     tags = [t.strip() for t in tag.split(',')]
     deadline_datetime = datetime.datetime.combine(deadline, datetime.time.min)
     time_diff_seconds = (deadline_datetime - datetime.datetime.now()).total_seconds()
@@ -16,7 +18,7 @@ def send_data(title, txt, tag, deadline):
         "tags": tags,  # Assuming tags are comma-separated
         "deadline" : int(time_diff_seconds) 
     }
-    response = requests.post(url, json=data)
+    response = requests.post(endpoint, json=data)
     return response.status_code, response.json() 
 
 
@@ -38,6 +40,6 @@ with st.form(key='my_form'):
         with st.spinner('Wait for it...'):
             status_code, response = send_data(title, txt, tag, deadline)
         if status_code == 200:
-            st.success('Data successfully submitted!')
+            st.success(f'Data successfully Analysis Predict View is {response}')
         else:
             st.error(f'Failed to submit data: {response}')
