@@ -4,7 +4,7 @@ import requests
 st.title("Predict Article's Top Rate View!!")
 
 def send_data():
-    url = 'https://cf26-104-199-156-150.ngrok-free.app' # dn be api link 
+    url = 'https://d29e-104-199-156-150.ngrok-free.app' # dn be api link 
     path = '/api/rank'  # Replace with your API endpoint
     endpoint = url + path
     response = requests.get(endpoint)

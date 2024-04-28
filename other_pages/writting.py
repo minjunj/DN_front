@@ -6,7 +6,7 @@ from st_pages import Page, Section, show_pages, add_page_title
 import requests
 
 def send_data(title, txt, tag, deadline):
-    url = "https://cf26-104-199-156-150.ngrok-free.app" # gn api link
+    url = "https://d29e-104-199-156-150.ngrok-free.app" # gn api link
     path = '/api/predict'  # Replace with your API endpoint
     endpoint = url + path
     tags = [t.strip() for t in tag.split(',')]
