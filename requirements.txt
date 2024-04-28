@@ -2,3 +2,5 @@ streamlit
 pandas
 numpy
 st-pages
+requests
+datetime
