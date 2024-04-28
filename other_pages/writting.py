@@ -6,7 +6,7 @@ from st_pages import Page, Section, show_pages, add_page_title
 import requests
 
 def send_data(title, txt, tag, deadline):
-    url = "https://13c2-104-199-156-150.ngrok-free.app"
+    url = "https://efd6-104-199-156-150.ngrok-free.app" # gn api link
     path = '/api/predict'  # Replace with your API endpoint
     endpoint = url + path
     tags = [t.strip() for t in tag.split(',')]
@@ -31,7 +31,7 @@ with st.form(key='my_form'):
         placeholder='Insert the Contents!',
         height=500,
     )
-    tag = st.text_input(label='Tags', placeholder='Insert Article Tags likes #apple, #beer')
+    tag = st.text_input(label='Tags', placeholder='Insert Article Tags likes apple, beer')
     deadline = st.date_input("When's artucle deadline", datetime.date(2024, 5, 5))
     submit_button = st.form_submit_button(label='Verify')
 
