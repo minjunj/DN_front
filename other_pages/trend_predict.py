@@ -37,7 +37,10 @@ with st.container():
         trend_list = send_data()
     for i in trend_list:
         api = f"https://api.ziggle.gistory.me/notice/{i[0]}" # ziggle be api 
-        response = requests.get(api)
-        r = response.json()["contents"][0]["title"]
-        hyperlink = f"https://ziggle.gistory.me/ko/notice/{i[0]}" # ziggle fe link
-        st.markdown(f'<div class="color-container"><p class="color-text"><a href="{hyperlink}" target="_blank">{response.json()["contents"][0]["title"]}       Predict : {i[1]}</a></p></div>', unsafe_allow_html=True)
+        try:
+            response = requests.get(api)
+            r = response.json()["contents"][0]["title"]
+            hyperlink = f"https://ziggle.gistory.me/ko/notice/{i[0]}" # ziggle fe link
+            st.markdown(f'<div class="color-container"><p class="color-text"><a href="{hyperlink}" target="_blank">{response.json()["contents"][0]["title"]}       Predict : {i[1]}</a></p></div>', unsafe_allow_html=True)
+        except:
+            pass
